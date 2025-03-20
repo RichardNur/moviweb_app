@@ -124,7 +124,5 @@ def delete_movie(user_id, movie_id):
 
     return render_template('delete_movie.html', movie=movie, user_id=user_id, user=user)
 
-fi
-
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5005)
