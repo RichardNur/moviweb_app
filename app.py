@@ -109,7 +109,6 @@ def update_movie(user_id, movie_id):
 
         return redirect(url_for('list_user_movies', user_id=user_id))
 
-
 @app.route('/users/<int:user_id>/delete_movie/<int:movie_id>', methods=['GET', 'POST'])
 def delete_movie(user_id, movie_id):
     movies = data_manager.get_user_movies(user_id)
@@ -123,6 +122,7 @@ def delete_movie(user_id, movie_id):
         return redirect(url_for('list_user_movies', user_id=user_id))
 
     return render_template('delete_movie.html', movie=movie, user_id=user_id, user=user)
+
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5005)
