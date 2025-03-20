@@ -15,8 +15,9 @@ class User(Base):
     """User model representing users of the system."""
     __tablename__ = 'users'
 
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(80), unique=True, nullable=False)
+    pin = Column(Integer, nullable=False)
     email = Column(String(120), unique=True, nullable=False)
     movies = relationship('Movie', backref='user', lazy=True)
 
@@ -28,12 +29,14 @@ class Movie(Base):
     """Movie model representing movies associated with users."""
     __tablename__ = 'movies'
 
-    id = Column(Integer, primary_key=True)
+    id = Column(Integer, primary_key=True, autoincrement=True)
     title = Column(String(120), nullable=False)
     year = Column(Integer, nullable=False)
     rating = Column(Float, nullable=False)
     poster = Column(String(255), nullable=True)
     user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
+    genre = Column(String(50))
+    summary = Column(String(5000))
 
     def __repr__(self):
         return f'<Movie {self.title}>'
@@ -43,7 +46,7 @@ Base.metadata.create_all(engine)
 
 # Create an instance of the Restaurant table class
 
-user1 = User(name="John Doe", email="johndoe@example.com")
+user1 = User(name="John Doe", pin=1234, email="johndoe@example.com")
 movie1 = Movie(title="Inception", year=2010, rating=8.8, poster="https://example.com/inception.jpg",
                user_id=1)
 

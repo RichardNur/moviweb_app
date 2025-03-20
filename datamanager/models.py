@@ -11,6 +11,7 @@ class User(db.Model):
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(String(80), unique=True, nullable=False)
+    pin = Column(Integer, nullable=False)
     email = Column(String(120), unique=True, nullable=False)
     movies = relationship('Movie', backref='user', lazy=True)
 
@@ -23,10 +24,12 @@ class Movie(db.Model):
     __tablename__ = 'movies'
 
     id = Column(Integer, primary_key=True, autoincrement=True, nullable=False)
-    title = Column(String(120), nullable=False)
+    title = Column(String(200), nullable=False)
     year = Column(Integer, nullable=False)
-    rating = Column(Float, nullable=False)
-    poster = Column(String(255), nullable=True)
+    rating = Column(Float)
+    summary = Column(String(5000))
+    genre = Column(String(200))
+    poster = Column(String(255))
     user_id = Column(Integer, ForeignKey('users.id'), nullable=False)
 
     def __repr__(self):

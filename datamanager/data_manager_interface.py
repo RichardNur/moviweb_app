@@ -29,7 +29,7 @@ class DataManagerInterface(ABC):
         pass
 
     @abstractmethod
-    def add_movie(self, title, year, rating, poster):
+    def add_movie(self, title, rating, year, poster):
         """
         Adds a movie to the database.
 
@@ -70,3 +70,14 @@ class DataManagerInterface(ABC):
             str: A confirmation message.
         """
         pass
+
+
+@abstractmethod
+def fetch_movie_data(self, movie):
+    """
+    Loads movie details from OMDB.
+
+    :param: movie: string name of movie
+    :return: title, rating, year, poster_image_url
+    """
+    pass
