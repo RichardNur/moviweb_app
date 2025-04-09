@@ -23,9 +23,9 @@ class SQLiteDataManager(DataManagerInterface):
         self.app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
         self.app.config['SECRET_KEY'] = '6b809f7762e4a672f4d57d951d87c67bff1991ee9eea687d' # for flash messages
 
+        db.init_app(self.app)
         with self.app.app_context():
-            db.__init__(self.app)
-            db.create_all()  # Ensure tables are created
+            db.create_all()
 
     def get_all_users(self):
         """
