@@ -1,4 +1,4 @@
-flask
+flask~=3.1.0
 flask_sqlalchemy
-SQLAlchemy
-requests
+SQLAlchemy~=2.0.39
+requests~=2.32.3
