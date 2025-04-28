@@ -1,5 +1,6 @@
 # MovieWeb App
-### Visit https://shaire.pythonanywhere.com/ and share your favorite Movies with the community! :)
+
+#### https://shaire.pythonanywhere.com/ - Visit us & share your favorite Movies with the community
 
 This MovieWeb App is a web application that allows users to manage their movie lists, add and update movie details, and explore movie information fetched from the OMDb API. The application supports basic user management and interacts with an SQLite database to store movie data.
 
